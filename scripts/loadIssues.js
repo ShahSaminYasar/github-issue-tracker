@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((json) => {
       issues = json?.data;
-      renderIssues(json?.data);
+      renderIssues(issues);
     });
 });
 
@@ -27,11 +27,13 @@ const renderIssues = (issues = []) => {
 
   issueCardsContainer.innerHTML = "";
 
-  issues?.map((issue) => {
-    const issueDiv = document.createElement("div");
-    issueDiv.classList = `w-full max-w-[345px] rounded-md border-t-3 ${issue?.status === "open" ? "border-green-600" : "border-purple-600"} bg-base-100 shadow-sm`;
-    const createdAt = new Date("2024-01-15T10:30:00Z");
-    issueDiv.innerHTML = `
+  if (issues.length > 0) {
+    issues?.map((issue, index) => {
+      const issueDiv = document.createElement("div");
+      issueDiv.classList = `w-full max-w-[345px] rounded-md border-t-3 ${issue?.status === "open" ? "border-green-600" : "border-purple-600"} bg-base-100 shadow-sm fade`;
+      issueDiv.style.animationDelay = `${index * 80}ms`;
+      const createdAt = new Date("2024-01-15T10:30:00Z");
+      issueDiv.innerHTML = `
         <div class="p-4 flex flex-col gap-3 border-b border-base-300">
             <div class="flex justify-between items-center gap-3">
                 <img
@@ -74,8 +76,25 @@ const renderIssues = (issues = []) => {
         </div>
     `;
 
-    issueCardsContainer.appendChild(issueDiv);
-  });
+      issueCardsContainer.appendChild(issueDiv);
+    });
+  } else {
+    const emptyDiv = document.createElement("div");
+    emptyDiv.classList = "card bg-base-100 fade col-span-3 sm:col-span-4";
+    emptyDiv.innerHTML = `
+    <div class="card-body items-center gap-1 py-25">
+        <img
+        src="./assets/empty.webp"
+        alt="Aperture Icon"
+        class="w-full max-w-[120px] mb-3"
+        />
+        <h6 class="card-title text-lg">No Issues Found</h6>
+        <p class="text-xs md:text-sm font-normal text-secondary">
+        Try searching with different keywords
+        </p>
+    </div>`;
+    issueCardsContainer.appendChild(emptyDiv);
+  }
 
   setLoading(false);
 };

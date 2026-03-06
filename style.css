@@ -32,7 +32,8 @@
 }
 
 .fade {
-  animation: fadeAnimation 0.3s linear;
+  opacity: 0;
+  animation: fadeAnimation 0.3s linear forwards;
 }
 
 @keyframes fadeAnimation {
