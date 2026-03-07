@@ -76,7 +76,7 @@ issueCardsContainer.addEventListener("click", (e) => {
             <div class="rounded-lg bg-base-200/40 p-3 grid grid-cols-2 gap-4 items-start">
                   <div class="text-neutral/60 text-sm">
                     <span class="block mb-1">Assignee:</span>
-                    <span class="text-neutral font-semibold">${issue?.assignee}</span>
+                    <span class="text-neutral font-semibold">${issue?.assignee || "UNASSIGNED"}</span>
                   </div>
                  
                   <div class="text-neutral/60 text-sm">

@@ -73,9 +73,15 @@ const renderIssues = (issues = []) => {
             </div>
         </div>
 
-        <div class="p-4 flex flex-col gap-2 text-neutral/60 text-xs">
-            <span>#${issue?.id} by ${issue?.author}</span>
-            <span>${formatDate(issue?.createdAt)}</span>
+        <div class="p-4 flex flex-col gap-2 text-neutral/60 text-[11px]">
+            <div class="flex items-center justify-between gap-3">
+              <span>#${issue?.id} by ${issue?.author}</span>
+              <span>${formatDate(issue?.createdAt)}</span>
+            </div>
+            <div class="flex items-center justify-between gap-3 text-right">
+              <span>Assignee: ${issue?.assignee || "Unassigned"}</span>
+              <span>Updated: ${formatDate(issue?.updatedAt)}</span>
+            </div>
         </div>
     `;
 
