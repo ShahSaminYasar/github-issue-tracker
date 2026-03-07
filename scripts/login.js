@@ -5,6 +5,7 @@ loginForm.addEventListener("submit", (e) => {
   const { username, password } = Object.fromEntries(formData.entries());
 
   if (username === "admin" && password === "admin123") {
+    localStorage.setItem("isLoggedIn", "true");
     window.location.assign("/main.html");
   } else {
     alert("Invalid Credentials");

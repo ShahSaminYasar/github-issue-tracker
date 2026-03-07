@@ -7,6 +7,7 @@ const issueCounter = document.getElementById("issue-counter");
 const searchForm = document.getElementById("search-form");
 const issueModalContent = document.getElementById("issue_modal_content");
 const issueModalTitle = document.getElementById("issue_modal_title");
+const logoutBtn = document.getElementById("logout-btn");
 
 let issues;
 
@@ -26,7 +27,9 @@ const setModalLoading = (on = true) => {
 
 issueCardsContainer.addEventListener("click", (e) => {
   const target = e.target.closest(".issue-div");
-  const id = target.dataset.id;
+  if (!target) return;
+
+  const id = target?.dataset?.id;
 
   if (!target || !id) return;
 
@@ -86,12 +89,8 @@ issueCardsContainer.addEventListener("click", (e) => {
             </div>
         `;
     })
+    .catch(() => alert("Failed to load issue"))
     .finally(() => {
       setModalLoading(false);
     });
 });
-
-// <p class="flex flex-row items-center flex-wrap gap-3 text-xs md:text-sm font-light text-secondary">
-//   <span>${job.location}</span> • <span>${job.type}</span> •
-//   <span>${job.salary}</span>
-// </p>;

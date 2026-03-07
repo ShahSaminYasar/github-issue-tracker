@@ -26,6 +26,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- AUTHENTICATION SCRIPT -->
+    <script src="./scripts/auth.js"></script>
   </head>
   <!-- MAIN PAGE -->
   <body
@@ -45,10 +47,12 @@
             type="search"
             name="search"
             placeholder="Search"
+            id="search"
             class="input input-bordered w-24 md:w-auto"
           />
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
+
         <div class="dropdown dropdown-end">
           <div
             tabindex="0"
@@ -57,17 +61,18 @@
           >
             <div class="w-10 rounded-full">
               <img
-                alt="User DP"
-                src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                alt="Admin DP"
+                src="https://avatars.githubusercontent.com/u/86876920?v=4"
               />
             </div>
           </div>
           <ul
             tabindex="-1"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            class="menu menu-md border border-base-300 dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <button id="logout-btn" class="text-error text-sm">Logout</button>
+            <li>Signed in as Admin</li>
+            <li class="bg-error/20 text-error font-medium text-sm mt-2">
+              <button id="logout-btn">Sign Out</button>
             </li>
           </ul>
         </div>
@@ -168,5 +173,6 @@
     <script src="./scripts/loadIssues.js"></script>
     <script src="./scripts/changeTab.js"></script>
     <script src="./scripts/search.js"></script>
+    <script src="./scripts/logout.js"></script>
   </body>
 </html>

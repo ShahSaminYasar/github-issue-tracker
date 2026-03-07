@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((json) => {
       issues = json?.data;
       renderIssues(issues);
-    });
+    })
+    .catch(() => alert("Failed to load issues"));
 });
 
 const setLoading = (on = true) => {
