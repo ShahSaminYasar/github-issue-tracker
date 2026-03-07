@@ -32,7 +32,7 @@ const renderIssues = (issues = []) => {
     issues?.map((issue, index) => {
       const issueDiv = document.createElement("div");
 
-      issueDiv.classList = `issue-div w-full max-w-[345px] rounded-md border-t-3 ${issue?.status === "open" ? "border-green-600" : "border-purple-600"} bg-base-100 shadow-sm fade`;
+      issueDiv.classList = `issue-div w-full max-w-[345px] mx-auto rounded-md border-t-3 ${issue?.status === "open" ? "border-green-600" : "border-purple-600"} bg-base-100 shadow-sm fade`;
       issueDiv.style.animationDelay = `${index * 80}ms`;
       issueDiv.dataset.id = issue?.id;
 
