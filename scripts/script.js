@@ -51,7 +51,7 @@ issueCardsContainer.addEventListener("click", (e) => {
       <p
             class="flex flex-row items-center flex-wrap gap-3 text-xs md:text-sm font-normal text-neutral/60"
           >
-            <span class="badge badge-success capitalize">${issue?.status}</span> •
+            <span class="badge ${issue?.status === "open" ? "badge-success" : "badge-error"} capitalize">${issue?.status}</span> •
             <span>Opened by ${issue?.author}</span> •
             <span>${formatDate(issue?.createdAt)}</span>
           </p>
